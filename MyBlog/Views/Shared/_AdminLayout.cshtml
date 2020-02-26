@@ -1,0 +1,55 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title | Blog Yönetim </title>
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/themes/base/jquery-ui.css" rel="stylesheet" />
+    <link href="~/Content/Admin.css" rel="stylesheet" />
+
+
+</head>
+<body>
+    <div id="Container">
+        <header>
+            <center> <h1>Blog Yönetim</h1></center>
+        </header>
+        <nav>
+            <a href="@Url.Action("Index","Admin")" class="btn btn-outline-secondary">Yönetim</a> |
+            <a href="@Url.Action("Index","Posts")" class="btn btn-outline-secondary">Gönderiler</a> |
+            <a href="@Url.Action("Index","Categories")" class="btn btn-outline-secondary">Kategoriler</a> |
+            <a href="@Url.Action("Index","Comment")" class="btn btn-outline-secondary">Yorumlar</a> |
+            <a href="@Url.Action("Password","Admin")" class="btn btn-outline-secondary">Parola İşlemleri</a> |
+            <a href="@Url.Action("Logout","Admin")" class="btn btn-outline-secondary">Çıkış</a>
+        </nav>
+        @RenderBody()
+    </div>
+
+
+
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+    <script src="~/Scripts/jquery-3.4.1.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script>
+        $(function () {
+            $(".datepick").datepicker();
+        });
+    </script>
+    <script src="~/Scripts/ckeditor/ckeditor.js"></script>
+    <script>
+        // 
+        // textarea editör
+        CKEDITOR.replace('Content');
+    </script>
+</body>
+</html>
